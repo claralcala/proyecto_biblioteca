@@ -1,0 +1,42 @@
+/* Agrega espacio entre el contenido principal y el pie de página */
+body {
+    margin-bottom: 100px; /* Ajusta según sea necesario */
+}
+
+/* Estilo para el pie de página */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40; /* Color de fondo oscuro */
+    color: #ffffff; /* Color del texto blanco */
+    padding: 10px 0;
+}
+
+/* Estilo para el encabezado */
+header {
+    background-color: #343a40; /* Color de fondo oscuro */
+    color: #ffffff; /* Color del texto blanco */
+    padding: 15px 0;
+}
+
+/* Ajuste de margen superior para el contenido principal */
+main {
+    margin-top: 20px;
+}
+
+/* Estilo para el botón (puedes ajustar según sea necesario) */
+.btn-dark {
+    background-color: #343a40; /* Color de fondo oscuro para botones */
+    color: #ffffff; /* Color del texto blanco para botones */
+    border-color: #343a40; /* Color del borde igual al fondo para botones oscuros */
+}
+
+/* Estilo para los enlaces (puedes ajustar según sea necesario) */
+a {
+    color: #343a40; /* Color del enlace */
+}
+
+a:hover {
+    color: #1d2124; /* Color del enlace al pasar el mouse */
+}
