@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LibroController;
 use App\Http\Controllers\RevistaController;
+use App\Http\Controllers\OrdenadorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,6 +64,20 @@ Route::delete('/revistas/{revista}', [RevistaController::class, 'destroy'])->nam
 //Ruta para actualizar revista
 Route::put('/revistas/{revista}', [RevistaController::class, 'update'])->name('revistas.update');
 
+
+Route::get('/ordenadores', [OrdenadorController::class, 'index'])->name('lista_ordenadores');
+Route::get('/ordenadores/registrar-ordenador', [OrdenadorController::class, 'create'])->name('ordenadores.create');
+Route::post('/ordenadores', [OrdenadorController::class, 'store'])->name('ordenadores.store');
+
+//Ruta para ver detalles de un ordenador
+Route::get('/ordenadores/{ordenador}', [OrdenadorController::class, 'show'])->name('ordenadores.show');
+
+//Editar y eliminar ordenador
+Route::get('/ordenadores/{ordenador}/edit', [OrdenadorController::class, 'edit'])->name('ordenadores.edit');
+Route::delete('/ordenadores/{ordenador}', [OrdenadorController::class, 'destroy'])->name('ordenadores.destroy');
+
+//para la pantalla de edición de ordenador
+Route::put('/ordenadores/{ordenador}', [OrdenadorController::class, 'update'])->name('ordenadores.update');
 //Route::get('/', function () {
   //  return view('welcome');
 //});
