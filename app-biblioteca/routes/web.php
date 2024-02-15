@@ -26,6 +26,7 @@ Route::get('/logados', [AuthController::class, 'logados'])->name('logados');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::middleware(['admin'])->group(function () {
 
 Route::get('/registrar-libro', [LibroController::class, 'create'])->name('libros.create');
 
@@ -78,6 +79,9 @@ Route::delete('/ordenadores/{ordenador}', [OrdenadorController::class, 'destroy'
 
 //para la pantalla de edición de ordenador
 Route::put('/ordenadores/{ordenador}', [OrdenadorController::class, 'update'])->name('ordenadores.update');
+
+});
+
 //Route::get('/', function () {
   //  return view('welcome');
 //});
