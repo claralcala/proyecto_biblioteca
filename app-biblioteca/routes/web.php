@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LibroController;
 use App\Http\Controllers\RevistaController;
 use App\Http\Controllers\OrdenadorController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,13 +19,45 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+// Rutas de Autenticación y Registro
 Route::get('/', [AuthController::class, 'index'])->name('home');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/logados', [AuthController::class, 'logados'])->name('logados');
-
-//Ruta para el logout
-
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('register', [UserController::class, 'create'])->name('register');
+Route::post('register', [UserController::class, 'store']);
+
+// Ruta para la página a la que se redirige a los administradores después del login
+Route::get('/logados', [AuthController::class, 'logados'])->middleware('auth')->name('logados');
+
+// Ruta para la página principal a la que se redirige a los usuarios normales después del login
+Route::get('/principal', [AuthController::class, 'principal'])->middleware('auth')->name('principal');
+
+// Rutas accesibles para usuarios normales y administradores
+Route::middleware(['auth'])->group(function () {
+    // Listado y detalles de libros
+    Route::get('/libros', [LibroController::class, 'listado'])->name('libros.listado');
+
+    
+    // Listado y detalles de revistas
+    Route::get('/revistas', [RevistaController::class, 'index'])->name('revistas.index');
+    
+
+    // Listado y detalles de ordenadores
+    Route::get('/ordenadores', [OrdenadorController::class, 'index'])->name('lista_ordenadores');
+    
+});
+
+Route::middleware(['user'])->group(function () {
+
+
+  Route::get('/libros/{libro}/show_user', [LibroController::class, 'showUser'])->name('libros.showUser')->middleware('auth');
+
+  Route::get('/revistas/{revista}', [RevistaController::class, 'show'])->name('revistas.show');
+
+  Route::get('/ordenadores/{ordenador}', [OrdenadorController::class, 'show'])->name('ordenadores.show');
+
+});  
+
 
 Route::middleware(['admin'])->group(function () {
 
@@ -33,13 +66,11 @@ Route::get('/registrar-libro', [LibroController::class, 'create'])->name('libros
 // Ruta para insertar libro en base de datos
 Route::post('/libros', [LibroController::class, 'store'])->name('libros.store');
 
-
-// Ruta del listado de libros
-Route::get('/listado', [LibroController::class, 'listado'])->name('libros.listado');
-
-
-//Lleva a la pantalla de los detalles de un libro
 Route::get('/libros/{libro}', [LibroController::class, 'show'])->name('libros.show');
+
+
+
+
 
 //Rutas para editar y eliminar libro
 Route::get('/libros/{libro}/edit', [LibroController::class, 'edit'])->name('libros.edit');
@@ -51,10 +82,9 @@ Route::put('/libros/{libro}', [LibroController::class, 'update'])->name('libros.
 
 Route::get('/registrar-revista', [RevistaController::class, 'create'])->name('revistas.create');
 Route::post('/revistas', [RevistaController::class, 'store'])->name('revistas.store');
-Route::get('/revistas', [RevistaController::class, 'index'])->name('revistas.index');
 
-// Detalles de revista
 Route::get('/revistas/{revista}', [RevistaController::class, 'show'])->name('revistas.show');
+
 
 // Ruta para editar revista
 Route::get('/revistas/{revista}/edit', [RevistaController::class, 'edit'])->name('revistas.edit');
@@ -66,7 +96,7 @@ Route::delete('/revistas/{revista}', [RevistaController::class, 'destroy'])->nam
 Route::put('/revistas/{revista}', [RevistaController::class, 'update'])->name('revistas.update');
 
 
-Route::get('/ordenadores', [OrdenadorController::class, 'index'])->name('lista_ordenadores');
+
 Route::get('/ordenadores/registrar-ordenador', [OrdenadorController::class, 'create'])->name('ordenadores.create');
 Route::post('/ordenadores', [OrdenadorController::class, 'store'])->name('ordenadores.store');
 
@@ -82,6 +112,6 @@ Route::put('/ordenadores/{ordenador}', [OrdenadorController::class, 'update'])->
 
 });
 
-//Route::get('/', function () {
-  //  return view('welcome');
-//});
+
+
+

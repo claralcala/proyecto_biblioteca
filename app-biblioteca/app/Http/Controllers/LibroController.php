@@ -55,6 +55,14 @@ class LibroController extends Controller
         return view('detalles', compact('libro'));
     }
 
+
+    public function showUser($id)
+    {
+        $libro = Libro::findOrFail($id); //si no encuentra el libro en cuestion saldrá un error
+        return view('detalles_libro_user', compact('libro'));
+    }
+
+
     //metodo para editar los detalles de un libro
     public function update(Request $request, $id)
     {

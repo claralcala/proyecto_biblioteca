@@ -16,7 +16,13 @@
         <tbody>
             @foreach ($libros as $libro)
             <tr>
-                <td><a href="{{ route('libros.show', $libro->id) }}">{{ $libro->titulo }}</a></td>
+            <td>
+                    @if(Auth::user()->role == 'admin')
+                        <a href="{{ route('libros.show', $libro->id) }}">{{ $libro->titulo }}</a>
+                    @else
+                        <a href="{{ route('libros.show_user', $libro->id) }}">{{ $libro->titulo }}</a>
+                    @endif
+                </td>
                 <td>{{ $libro->autor }}</td>
                 <td>{{ $libro->isbn }}</td>
                 <td>{{ $libro->anio_publicacion }}</td>

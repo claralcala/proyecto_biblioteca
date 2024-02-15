@@ -31,25 +31,31 @@ class AuthController extends Controller
 	* en caso correcto logar al usuario
 	*/
 	public function login(Request $request)
-	{
-	    // Comprobamos que el email y la contraseña han sido introducidos
-	    $request->validate([
-	        'email' => 'required',
-	        'password' => 'required',
-	    ]);
-	
-	    // Almacenamos las credenciales de email y contraseña
-	    $credentials = $request->only('email', 'password');
-	
-	    // Si el usuario existe lo logamos y lo llevamos a la vista de "logados" con un mensaje
-	    if (Auth::attempt($credentials)) {
-	        return redirect()->intended('logados')
-	            ->withSuccess('Logado Correctamente');
-	    }
-	
-	    // Si el usuario no existe devolvemos al usuario al formulario de login con un mensaje de error
-	    return redirect("/")->withSuccess('Los datos introducidos no son correctos');
-	}
+{
+    // Comprobamos que el email y la contraseña han sido introducidos
+    $request->validate([
+        'email' => 'required',
+        'password' => 'required',
+    ]);
+
+    // Almacenamos las credenciales de email y contraseña
+    $credentials = $request->only('email', 'password');
+
+    // Si el usuario existe lo logamos
+    if (Auth::attempt($credentials)) {
+        // Comprobamos el rol del usuario y redirigimos según sea admin o user
+        if (Auth::user()->role == 'admin') {
+            // Si es admin, redirige a la vista 'logados'
+            return redirect()->intended('logados')->withSuccess('Logado Correctamente como Administrador');
+        } else {
+            // Si es un usuario normal, redirige a la vista 'principal'
+            return redirect()->intended('principal')->withSuccess('Logado Correctamente');
+        }
+    }
+
+    // Si el usuario no existe devolvemos al usuario al formulario de login con un mensaje de error
+    return redirect("/")->withSuccess('Los datos introducidos no son correctos');
+}
 	
 	/**
 	* Función que muestra la vista de logados si el usuario está logado y si no le devuelve al formulario de login
@@ -63,6 +69,16 @@ class AuthController extends Controller
 	
 	    return redirect("/")->withSuccess('No tienes acceso, por favor inicia sesión');
     }
+
+
+	public function principal()
+{
+    if (Auth::check()) {
+		return view('principal');
+	}
+
+	return redirect("/")->withSuccess('No tienes acceso, por favor inicia sesión');
+}
 
 	/**
 	* Función para desloguearse

@@ -1,4 +1,5 @@
 @extends('app')
+
 @section('content')
 @if(session('success'))
     <h1>{{session('success')}}</h1>
@@ -36,6 +37,10 @@
                                 <button type="submit" class="btn btn-dark btn-block">Enviar</button>
                             </div>
                         </form>
+                        <!-- Enlace para registrarse como usuario de la web -->
+                        <div class="mt-4 text-center">
+                            ¿No tienes una cuenta? <a href="{{ route('register') }}">Regístrate</a>
+                        </div>
                     </div>
                 </div>
             </div>
