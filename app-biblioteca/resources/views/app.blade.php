@@ -22,10 +22,21 @@
     </style>
 </head>
 <body>
-    <header class="bg-dark text-white text-center py-3">
+<header class="bg-dark text-white text-center py-3">
+    @if(Auth::check()) {{-- Verifica si hay un usuario autenticado --}}
+        @if(Auth::user()->role === 'admin') {{-- Si el usuario es un administrador --}}
+            <a href="{{ route('logados') }}" class="text-white">
+                <h1>Biblioteca Carrillo</h1>
+            </a>
+        @elseif(Auth::user()->role === 'user') {{-- Si el usuario es un usuario normal --}}
+            <a href="{{ route('principal') }}" class="text-white">
+                <h1>Biblioteca Carrillo</h1>
+            </a>
+        @endif
+    @else {{-- Sin usuario autenticado dejamos el header sin enlace --}}
         <h1>Biblioteca Carrillo</h1>
-    </header>
-
+    @endif
+</header>
     @yield('content')
 
     <footer class="bg-dark text-white text-center py-3">
