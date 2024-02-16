@@ -48,25 +48,16 @@
             </div>
         </nav>
 
-<!-- Contenido principal -->
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-
-        <div class="text-center">
-            
-               
+ <!-- Contenido principal -->
+ <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Bienvenido/a, {{ Auth::user()->name }}</h1>
             </div>
 
-            <div class="text-center">
-                <h4>Es un placer darle la bienvenida a la Biblioteca Carrillo, un espacio dedicado al conocimiento, la cultura y el enriquecimiento personal. Nos complace enormemente tener la oportunidad de compartir con usted la diversidad de recursos y servicios que ofrecemos.</h4></br>
+            <img src="{{ asset('images/pantallaPrincipal.jpeg') }}" alt="Imagen Biblioteca Carrillo" class="img-fluid mb-3">
 
-                </br>
-                
-                <img src="{{ asset('images/pantallaPrincipal.jpeg') }}" alt="Imagen Biblioteca Carrillo" class="img-fluid mb-3"></br>
-
-                </br>
-
-                <h4>
+            <h4>Es un placer darle la bienvenida a la Biblioteca Carrillo, un espacio dedicado al conocimiento, la cultura y el enriquecimiento personal. Nos complace enormemente tener la oportunidad de compartir con usted la diversidad de recursos y servicios que ofrecemos.</h4>
+            <h4>
                     En la Biblioteca Carrillo, nos esforzamos por ser mucho más que un simple depósito de libros; somos un centro dinámico que fomenta la exploración intelectual, el aprendizaje continuo y el desarrollo de la comunidad. Nuestra colección abarca una amplia gama de temas, desde literatura clásica hasta las últimas novedades en ciencia, tecnología, historia y más.</br>
 
                 </br>
@@ -89,12 +80,11 @@
                     </br>
                     ¡Bienvenido/a a la Biblioteca Carrillo!
                 </h4>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                </div>
             </div>
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-        </div>
-    </div>
-</main>
+        </main>
 
     </div>
 </div>
