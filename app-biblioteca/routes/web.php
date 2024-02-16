@@ -57,6 +57,9 @@ Route::middleware(['user'])->group(function () {
   Route::get('/ordenadores/{ordenador}/show_user', [OrdenadorController::class, 'showUser'])->name('ordenadores.showUser')->middleware('auth');
 
   Route::post('/libros/{libro}/prestar', [LibroController::class, 'prestar'])->middleware('auth')->name('libros.prestar');
+
+
+
 });  
 
 

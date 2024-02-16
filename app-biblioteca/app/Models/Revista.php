@@ -14,6 +14,7 @@ class Revista extends Model
         'titulo', 
         'numero',  
         'anio_publicacion', 
-        'portada'
+        'portada',
+        'prestado'
     ];
 }

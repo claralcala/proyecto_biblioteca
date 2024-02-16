@@ -30,5 +30,8 @@
         @else
             <button class="btn btn-primary" disabled>Ya Prestado</button>
     @endif
+
+    <!-- Botón para volver al listado de libros -->
+    <a href="{{ route('libros.listado') }}" class="btn btn-secondary">Volver al listado de libros</a>
     </div>
 @endsection
