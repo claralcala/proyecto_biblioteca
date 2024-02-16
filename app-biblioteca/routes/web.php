@@ -61,6 +61,11 @@ Route::middleware(['user'])->group(function () {
   Route::post('/revistas/{revista}/prestar', [RevistaController::class, 'prestar'])->middleware('auth')->name('revistas.prestar');
 
   Route::post('/ordenadores/{ordenador}/prestar', [OrdenadorController::class, 'prestar'])->middleware('auth')->name('ordenadores.prestar');
+
+
+  Route::get('/mis-libros', [UserController::class, 'librosPrestados'])->name('user.libros_prestados')->middleware('auth');
+  Route::get('/mis-revistas', [UserController::class, 'revistasPrestadas'])->name('user.revistas_prestadas')->middleware('auth');
+  Route::get('/mis-ordenadores', [UserController::class, 'ordenadoresPrestados'])->name('user.ordenadores_prestados')->middleware('auth');
 });  
 
 
