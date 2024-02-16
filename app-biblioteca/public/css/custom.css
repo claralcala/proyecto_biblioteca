@@ -71,3 +71,23 @@ a:hover {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Estilo para el sidebar */
+.sidebar {
+    background: rgb(44, 49, 54); /* Cambiar a un gris más oscuro para el fondo del sidebar */
+    color: #000000; /* Cambiar a azul para el color del texto en el sidebar */
+    padding-top: 20px; /* Espaciado superior en el sidebar */
+}
+
+/* Estilo para los enlaces dentro del sidebar */
+.sidebar a {
+    color: #ffffff; /* Color del enlace en el sidebar */
+}
+
+.sidebar a:hover {
+    color: #1d2124; /* Color del enlace al pasar el mouse en el sidebar */
+}
+.custom-bg {
+    background-color: #797171; /* Cambia esto al tono de gris que prefieras */
+}
+
