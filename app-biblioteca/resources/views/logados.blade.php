@@ -5,6 +5,7 @@
         <!-- Sidebar -->
         <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
+                <h2>Barra de Navegacion</h2>
                 <ul class="nav flex-column">
                     <!-- Elementos del Sidebar -->
                     <li class="nav-item">
@@ -28,6 +29,16 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('ordenadores.create') }}">
+                            Registrar Ordenador
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('ordenadores.store') }}">
+                            Listado Ordenadores
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <form action="{{ route('logout') }}" method="post">
                             @csrf
                             <button type="submit" class="btn btn-danger">Logout</button>
@@ -37,8 +48,6 @@
             </div>
         </nav>
 
-
- <!-- Contenido principal -->
 <!-- Contenido principal -->
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -89,4 +98,4 @@
 
     </div>
 </div>
-@endsection
+@endsection 
