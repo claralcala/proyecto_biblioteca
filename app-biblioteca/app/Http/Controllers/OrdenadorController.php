@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Ordenador;
 use Illuminate\Http\Request;
+use App\Models\PrestamosOrdenadors;
+use Illuminate\Support\Facades\Auth;
 
 class OrdenadorController extends Controller
 {
@@ -77,6 +79,32 @@ public function update(Request $request, $id)
     $ordenador->update($request->all());
 
     return redirect()->route('lista_ordenadores')->with('success', 'Ordenador actualizado con éxito');
+}
+
+
+public function prestar(Request $request, $ordenadorId)
+{
+    $ordenador = Ordenador::findOrFail($ordenadorId);
+    
+    if ($ordenador->prestado) {
+        return back()->with('error', 'Este ordenador ya está prestado.');
+    }
+
+    $prestamoPC = new PrestamosOrdenadors();
+    $prestamoPC->user_id = Auth::id(); //El ID del usuario logueado
+    $prestamoPC->ordenador_id = $ordenadorId; //El ID del libro que se quiere prestar
+    $prestamoPC->hora_prestamo = now();
+    $prestamoPC->save();
+
+    // Se pone el libro como prestado
+    $ordenador->prestado = true;
+    $ordenador->save();
+
+
+
+   
+
+    return back()->with('success', 'Ordenador prestado con éxito.');
 }
 
 }

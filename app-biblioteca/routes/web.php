@@ -60,6 +60,7 @@ Route::middleware(['user'])->group(function () {
 
   Route::post('/revistas/{revista}/prestar', [RevistaController::class, 'prestar'])->middleware('auth')->name('revistas.prestar');
 
+  Route::post('/ordenadores/{ordenador}/prestar', [OrdenadorController::class, 'prestar'])->middleware('auth')->name('ordenadores.prestar');
 });  
 
 

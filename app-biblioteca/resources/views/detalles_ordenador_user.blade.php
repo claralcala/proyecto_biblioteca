@@ -14,6 +14,17 @@
         <dd class="col-sm-10">{{ $ordenador->numero_referencia }}</dd>
     </dl>
 
+    @if(!$ordenador->prestado)
+    <form action="{{ route('ordenadores.prestar', $ordenador->id) }}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-primary">Pedir Prestado</button>
+    </form>
+    @else
+    <button class="btn btn-secondary" disabled>Ya Prestado</button>
+    @endif
+</form>
+
+<a href="{{ route('lista_ordenadores') }}" class="btn btn-secondary">Volver al listado de ordenadores</a>
     
 </div>
 @endsection
