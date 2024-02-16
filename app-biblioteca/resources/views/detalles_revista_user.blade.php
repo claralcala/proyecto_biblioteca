@@ -14,8 +14,18 @@
             <p>No hay portada disponible</p>
         @endif
 
-    
 
+        @if(!$revista->prestado)
+    <form action="{{ route('revistas.prestar', $revista->id) }}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-primary">Pedir Prestada</button>
+    </form>
+    @else
+    <button class="btn btn-secondary" disabled>Ya Prestada</button>
+    @endif
+
+
+    <a href="{{ route('revistas.index') }}" class="btn btn-secondary">Volver al listado de revistas</a>
     
 </div>
 @endsection

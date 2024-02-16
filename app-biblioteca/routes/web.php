@@ -58,7 +58,7 @@ Route::middleware(['user'])->group(function () {
 
   Route::post('/libros/{libro}/prestar', [LibroController::class, 'prestar'])->middleware('auth')->name('libros.prestar');
 
-
+  Route::post('/revistas/{revista}/prestar', [RevistaController::class, 'prestar'])->middleware('auth')->name('revistas.prestar');
 
 });  
 

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Revista;
+use App\Models\PrestamosRevistas;
+use Illuminate\Support\Facades\Auth;
+
 
 class RevistaController extends Controller
 {
@@ -104,6 +107,30 @@ public function update(Request $request, $id)
 
         return redirect()->route('revistas.show', $revista->id);
     }
+
+    //Función para pedir prestada una revista
+    public function prestar(Request $request, $revistaId)
+{
+    $revista = Revista::findOrFail($revistaId);
+    
+    //Verificar si ya existe un préstamo activo para esta revista
+    if ($revista->prestado) {
+        //Si el libro ya está prestado, redirige con un mensaje de error
+        return back()->with('error', 'Esta revista ya está prestada.');
+    }
+
+    $prestamoRevista = new PrestamosRevistas();
+    $prestamoRevista->user_id = Auth::id(); //El ID del usuario logueado
+    $prestamoRevista->revista_id = $revistaId; //El ID del libro que se quiere prestar
+    $prestamoRevista->fecha_prestamo = now();
+    $prestamoRevista->save();
+
+    // Se pone el libro como prestado
+    $revista->prestado = true;
+    $revista->save();
+
+    return back()->with('success', 'Revista prestada con éxito');
+}
 
     
 }
