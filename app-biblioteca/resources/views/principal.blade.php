@@ -4,8 +4,9 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Sidebar -->
-        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block custom-bg sidebar">
             <div class="sidebar-sticky">
+            <h2>Barra de Navegacion</h2>
                 <ul class="nav flex-column">
                     <!-- Elementos del sidebar -->
                     <li class="nav-item">
