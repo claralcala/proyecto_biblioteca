@@ -15,6 +15,7 @@ class Libro extends Model
         'autor', 
         'isbn', 
         'anio_publicacion', 
-        'portada'
+        'portada',
+        'prestado'
     ];
 }

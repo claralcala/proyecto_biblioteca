@@ -15,7 +15,15 @@
         <tbody>
             @foreach ($ordenadores as $ordenador)
             <tr>
-                <td><a href="{{ route('ordenadores.show', $ordenador->id) }}">{{ $ordenador->marca }}</a></td>
+
+            <td>
+                    @if(Auth::user()->role == 'admin')
+                        <a href="{{ route('ordenadores.show', $ordenador->id) }}">{{ $ordenador->marca }}</a>
+                    @else
+                        <a href="{{ route('ordenadores.showUser', $ordenador->id) }}">{{ $ordenador->marca }}</a>
+                    @endif
+                </td>
+                
                 <td>{{ $ordenador->modelo }}</td>
                 <td>{{ $ordenador->numero_referencia }}</td>
                 <td>

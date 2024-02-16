@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Libro;
+use App\Models\PrestamosLibros;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LibroController extends Controller
 {
@@ -108,6 +110,32 @@ class LibroController extends Controller
         $libro = Libro::findOrFail($id);
         return view('edit_libro', compact('libro'));
     }
+
+//Función para pedir prestado un libro
+    public function prestar(Request $request, $libroId)
+{
+
+    // Buscamos el libro por su ID
+    $libro = Libro::findOrFail($libroId);
+
+    if ($libro->prestado) {
+        //Si el libro ya está prestado, redirige con un mensaje de error
+        return back()->with('error', 'Este libro ya está prestado.');
+    }
+
+
+    $prestamoLibro = new PrestamosLibros();
+    $prestamoLibro->user_id = Auth::id(); //El ID del usuario logueado
+    $prestamoLibro->libro_id = $libroId; //El ID del libro que se quiere prestar
+    $prestamoLibro->fecha_prestamo = now();
+    $prestamoLibro->save();
+
+    // Se pone el libro como prestado
+    $libro->prestado = true;
+    $libro->save();
+
+    return back()->with('success', 'Libro prestado con éxito');
+}
 
 
 }

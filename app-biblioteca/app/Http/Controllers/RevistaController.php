@@ -57,6 +57,13 @@ class RevistaController extends Controller
     }
 
 
+    public function showUser($id)
+    {
+        $revista = Revista::findOrFail($id); //si no encuentra el libro en cuestion saldrá un error
+        return view('detalles_revista_user', compact('revista'));
+    }
+
+
     public function edit($id)
 {
     $revista = Revista::findOrFail($id);

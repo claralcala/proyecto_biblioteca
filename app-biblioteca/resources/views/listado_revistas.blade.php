@@ -16,7 +16,15 @@
         <tbody>
             @foreach ($revistas as $revista)
             <tr>
-                <td><a href="{{ route('revistas.show', $revista->id) }}">{{ $revista->titulo }}</a></td>
+                
+            <td>
+                    @if(Auth::user()->role == 'admin')
+                        <a href="{{ route('revistas.show', $revista->id) }}">{{ $revista->titulo }}</a>
+                    @else
+                        <a href="{{ route('revistas.showUser', $revista->id) }}">{{ $revista->titulo }}</a>
+                    @endif
+                </td>
+        
                 <td>{{ $revista->titulo }}</td>
                 <td>{{ $revista->numero }}</td>
                 <td>{{ $revista->anio_publicacion }}</td>

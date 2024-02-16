@@ -52,10 +52,11 @@ Route::middleware(['user'])->group(function () {
 
   Route::get('/libros/{libro}/show_user', [LibroController::class, 'showUser'])->name('libros.showUser')->middleware('auth');
 
-  Route::get('/revistas/{revista}', [RevistaController::class, 'show'])->name('revistas.show');
+  Route::get('/revistas/{revista}/show_user', [RevistaController::class, 'showUser'])->name('revistas.showUser')->middleware('auth');
 
-  Route::get('/ordenadores/{ordenador}', [OrdenadorController::class, 'show'])->name('ordenadores.show');
+  Route::get('/ordenadores/{ordenador}/show_user', [OrdenadorController::class, 'showUser'])->name('ordenadores.showUser')->middleware('auth');
 
+  Route::post('/libros/{libro}/prestar', [LibroController::class, 'prestar'])->middleware('auth')->name('libros.prestar');
 });  
 
 

@@ -18,8 +18,13 @@ class AuthController extends Controller
 	    // Comprobamos si el usuario ya está logado
 	    if (Auth::check()) {
 	
-	        // Si está logado le mostramos la vista de logados
-	        return view('logados');
+	        if (Auth::user()->role == 'admin') {
+				// Si es admin, redirige a la vista 'logados'
+				return redirect()->intended('logados')->withSuccess('Logado Correctamente como Administrador');
+			} else {
+				// Si es un usuario normal, redirige a la vista 'principal'
+				return redirect()->intended('principal')->withSuccess('Logado Correctamente');
+			}
 	    }
 	
 	    // Si no está logado le mostramos la vista con el formulario de login

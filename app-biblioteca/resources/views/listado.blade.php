@@ -20,7 +20,7 @@
                     @if(Auth::user()->role == 'admin')
                         <a href="{{ route('libros.show', $libro->id) }}">{{ $libro->titulo }}</a>
                     @else
-                        <a href="{{ route('libros.show_user', $libro->id) }}">{{ $libro->titulo }}</a>
+                        <a href="{{ route('libros.showUser', $libro->id) }}">{{ $libro->titulo }}</a>
                     @endif
                 </td>
                 <td>{{ $libro->autor }}</td>

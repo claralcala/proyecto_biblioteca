@@ -44,6 +44,13 @@ class OrdenadorController extends Controller
 }
 
 
+public function showUser($id)
+{
+    $ordenador = Ordenador::findOrFail($id);
+    return view('detalles_ordenador_user', compact('ordenador'));
+}
+
+
 public function edit($id)
 {
     $ordenador = Ordenador::findOrFail($id);
