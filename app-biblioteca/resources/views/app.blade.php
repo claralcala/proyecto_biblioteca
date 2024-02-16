@@ -33,7 +33,7 @@
                 <h1>Biblioteca Carrillo</h1>
             </a>
         @endif
-    @else {{-- Si no hay usuario autenticado, opcionalmente puedes redirigir a otra ruta o dejar el header sin enlace --}}
+    @else {{-- Sin usuario autenticado dejamos el header sin enlace --}}
         <h1>Biblioteca Carrillo</h1>
     @endif
 </header>
