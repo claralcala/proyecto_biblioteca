@@ -31,7 +31,7 @@
                 </td>
             </tr>
             @endforeach
-            <a href="{{ route('ordenadores.create') }}" class="btn btn-primary">Crear Ordenador</a>
+            
         </tbody>
     </table>
 </div>
