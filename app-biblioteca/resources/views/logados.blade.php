@@ -5,7 +5,7 @@
         <!-- Sidebar -->
         <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block custom-bg sidebar">
             <div class="sidebar-sticky">
-                <h2>Barra de Navegacion</h2>
+                <h2>Barra de Navegación</h2>
                 <ul class="nav flex-column">
                     <!-- Elementos del Sidebar -->
                     <li class="nav-item">
