@@ -25,6 +25,22 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.libros_prestados') }}">
+                            Mis libros
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.revistas_prestadas') }}">
+                            Mis revistas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.ordenadores_prestados') }}">
+                            Mis ordenadores
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <form action="{{ route('logout') }}" method="post">
                             @csrf
                             <button type="submit" class="btn btn-danger">Logout</button>

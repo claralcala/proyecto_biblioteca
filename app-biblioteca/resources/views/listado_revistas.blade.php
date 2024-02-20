@@ -8,28 +8,47 @@
                 <h2>Barra de Navegación</h2>
                 <ul class="nav flex-column">
                     <!-- Elementos del Sidebar -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('libros.create') }}">
-                            Registrar Libro
-                        </a>
-                    </li>
+                    @if(Auth::user()->role == 'admin') {{-- Solo visible para administradores --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('libros.create') }}">
+                                Registrar Libro
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('revistas.create') }}">
+                                Registrar Revista
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('ordenadores.create') }}">
+                                Registrar Ordenador
+                            </a>
+                        </li>
+                    @else {{-- Solo visible para usuarios normales --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('user.libros_prestados') }}">
+                                Mis libros
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('user.revistas_prestadas') }}">
+                                Mis revistas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('user.ordenadores_prestados') }}">
+                                Mis ordenadores
+                            </a>
+                        </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('libros.listado') }}">
-                            Listado de Libros
+                            Listado Libros
                         </a>
                     </li>
+        
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('revistas.create') }}">
-                            Registrar Revista
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('ordenadores.create') }}">
-                            Registrar Ordenador
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('ordenadores.store') }}">
+                        <a class="nav-link" href="{{ route('lista_ordenadores') }}">
                             Listado Ordenadores
                         </a>
                     </li>

@@ -12,7 +12,7 @@ class OrdenadorController extends Controller
     
     public function index()
     {
-        $ordenadores = Ordenador::all();
+        $ordenadores = Ordenador::simplePaginate(10);
         return view('lista_ordenadores', compact('ordenadores'));
     }
 
