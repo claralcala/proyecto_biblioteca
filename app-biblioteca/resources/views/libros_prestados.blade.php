@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Sidebar -->
-        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block custom-bg sidebar">
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block custom-bg sidebar" style="height: 100vh;">
             <div class="sidebar-sticky">
                 <h2>Barra de Navegación</h2>
                 <ul class="nav flex-column">
