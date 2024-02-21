@@ -91,3 +91,7 @@ a:hover {
     background-color: #797171; /* Cambia esto al tono de gris que prefieras */
 }
 
+.custom-margin {
+    margin-right: 15px; /* Ajusta el valor según necesites */
+}
+

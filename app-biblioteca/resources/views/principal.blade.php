@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Sidebar -->
-        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block custom-bg sidebar" style="height: 100vh;">
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block custom-bg sidebar" style="height: 200vh;">
             <div class="sidebar-sticky">
             <h2>Barra de Navegación</h2>
                 <ul class="nav flex-column">
@@ -50,14 +50,14 @@
             </div>
         </nav>
 <!-- Contenido principal -->
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 text-center">
-    <div class="d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 text-left">
+    <div class="d-flex justify-content-left flex-wrap align-items-left pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Bienvenido/a, {{ Auth::user()->name }}</h1>
     </div>
 
     <img src="{{ asset('images/pantallaPrincipal.jpeg') }}" alt="Imagen Biblioteca Carrillo" class="img-fluid mb-3">
 
-    <h4 class="text-center">
+    <h4 class="text-left">
         Es un placer darle la bienvenida a la Biblioteca Carrillo, un espacio dedicado al conocimiento, la cultura y el enriquecimiento personal. Nos complace enormemente tener la oportunidad de compartir con usted la diversidad de recursos y servicios que ofrecemos.
 
         <br/><br/>
