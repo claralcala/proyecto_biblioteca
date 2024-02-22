@@ -15,6 +15,9 @@
     <!-- CSS CUSTOM -->
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
+    <link rel="icon" href="{{ asset('images/icon.png') }}" type="image/x-icon"/>
+
+
     <style>
         body {
             font-family: 'Nunito', sans-serif;
@@ -26,17 +29,18 @@
     @if(Auth::check()) {{-- Verifica si hay un usuario autenticado --}}
         @if(Auth::user()->role === 'admin') {{-- Si el usuario es un administrador --}}
             <a href="{{ route('logados') }}" class="text-white">
-                <h1>Biblioteca Carrillo</h1>
+                <img src= "{{ asset('images/biblio.png') }}" alt = "Logo" class="img-fluid mb-3">
+                
 
             </a>
            
         @elseif(Auth::user()->role === 'user') {{-- Si el usuario es un usuario normal --}}
             <a href="{{ route('principal') }}" class="text-white">
-                <h1>Biblioteca Carrillo</h1>
+                <img src= "{{ asset('images/biblio.png') }}" alt = "Logo" class="img-fluid mb-3">
             </a>
         @endif
     @else {{-- Sin usuario autenticado dejamos el header sin enlace --}}
-        <h1>Biblioteca Carrillo</h1>
+        <img src= "{{ asset('images/biblio.png') }}" alt = "Logo" class="img-fluid mb-3">
     @endif
 
     <a href="{{ route('set_language', ['language' => 'en']) }}">English</a>

@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 // Rutas de Autenticación y Registro
 Route::get('/', [AuthController::class, 'index'])->name('home');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/logados', [AuthController::class, 'logados'])->name('logados');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('register', [UserController::class, 'create'])->name('register');
 Route::post('register', [UserController::class, 'store']);
