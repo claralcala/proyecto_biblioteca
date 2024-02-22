@@ -27,7 +27,9 @@
         @if(Auth::user()->role === 'admin') {{-- Si el usuario es un administrador --}}
             <a href="{{ route('logados') }}" class="text-white">
                 <h1>Biblioteca Carrillo</h1>
+
             </a>
+           
         @elseif(Auth::user()->role === 'user') {{-- Si el usuario es un usuario normal --}}
             <a href="{{ route('principal') }}" class="text-white">
                 <h1>Biblioteca Carrillo</h1>
@@ -36,6 +38,9 @@
     @else {{-- Sin usuario autenticado dejamos el header sin enlace --}}
         <h1>Biblioteca Carrillo</h1>
     @endif
+
+    <a href="{{ route('set_language', ['language' => 'en']) }}">English</a>
+    <a href="{{ route('set_language', ['language' => 'es']) }}">Español</a>
 </header>
     @yield('content')
 

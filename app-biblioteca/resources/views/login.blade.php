@@ -29,17 +29,17 @@
                             <div class="form-group mb-3">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember"> Recuérdame
+                                        <input type="checkbox" name="remember"> {{__('Recuerdame')}}
                                     </label>
                                 </div>
                             </div>
                             <div class="d-grid mx-auto">
-                                <button type="submit" class="btn btn-dark btn-block">Enviar</button>
+                                <button type="submit" class="btn btn-dark btn-block"> {{__('Enviar')}}</button>
                             </div>
                         </form>
                         <!-- Enlace para registrarse como usuario de la web -->
                         <div class="mt-4 text-center">
-                            ¿No tienes una cuenta? <a href="{{ route('register') }}">Regístrate</a>
+                             {{__('No tienes cuenta')}} <a href="{{ route('register') }}"> {{__('Registrate')}}</a>
                         </div>
                     </div>
                 </div>

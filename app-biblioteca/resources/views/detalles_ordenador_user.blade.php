@@ -2,25 +2,25 @@
 
 @section('content')
 <div class="container">
-    <h2>Detalles del Ordenador</h2>
+    <h2>{{__('Detalles del ordenador')}}</h2>
     <dl class="row">
-        <dt class="col-sm-2">Marca:</dt>
+        <dt class="col-sm-2">{{__('Marca')}}</dt>
         <dd class="col-sm-10">{{ $ordenador->marca }}</dd>
 
-        <dt class="col-sm-2">Modelo:</dt>
+        <dt class="col-sm-2">{{__('Modelo')}}</dt>
         <dd class="col-sm-10">{{ $ordenador->modelo }}</dd>
 
-        <dt class="col-sm-2">Número de Referencia:</dt>
+        <dt class="col-sm-2">{{__('Numero referencia')}}</dt>
         <dd class="col-sm-10">{{ $ordenador->numero_referencia }}</dd>
     </dl>
 
     @if(!$ordenador->prestado)
     <form action="{{ route('ordenadores.prestar', $ordenador->id) }}" method="POST">
         @csrf
-        <button type="submit" class="btn btn-primary">Pedir Prestado</button>
+        <button type="submit" class="btn btn-primary">{{__('Pedir prestado')}}</button>
     </form>
     @else
-    <button class="btn btn-secondary" disabled>Ya Prestado</button>
+    <button class="btn btn-secondary" disabled>{{__('Ya prestado')}}</button>
     @endif
 </form>
 

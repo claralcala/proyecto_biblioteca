@@ -8,9 +8,9 @@
         {{ session('success') }}
     </div>
     @endif
-    <h2>Detalles del Libro</h2>
-    <p><strong>Título:</strong> {{ $libro->titulo }}</p>
-    <p><strong>Autor:</strong> {{ $libro->autor }}</p>
+    <h2>{{__('Detalles del Libro')}}</h2>
+    <p><strong>{{__('Titulo')}}</strong> {{ $libro->titulo }}</p>
+    <p><strong>{{__('Autor')}}</strong> {{ $libro->autor }}</p>
 
     @if($libro->portada)
     <div>
@@ -18,7 +18,7 @@
             style="max-width: 100%; height: 300px; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
     </div>
     @else
-    <p>No hay portada disponible</p>
+    <p>{{__('No hay portada')}}</p>
     @endif
 
     <!-- Contenedor para los botones, utilizando flexbox de Bootstrap -->

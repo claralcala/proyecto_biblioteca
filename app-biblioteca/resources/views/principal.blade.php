@@ -6,37 +6,43 @@
         <!-- Sidebar -->
         <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block custom-bg sidebar" style="height: 200vh;">
             <div class="sidebar-sticky">
-            <h2>Barra de Navegación</h2>
+            <h2>{{__('Barra de Navegación')}}</h2>
                 <ul class="nav flex-column">
                     <!-- Elementos del sidebar -->
                     <li class="nav-item">
                     <a class="nav-link" href="{{ route('libros.listado') }}">
-                            Listado de Libros
+                          
+                            {{__('Listado de Libros')}}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('revistas.index') }}">
-                            Listado de Revistas
+                           
+                            {{__('Listado de Revistas')}}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('lista_ordenadores') }}">
-                            Listado de Ordenadores
+                            
+                            {{__('Listado de Ordenadores')}}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('user.libros_prestados') }}">
-                            Mis libros
+                          
+                            {{__('Mis libros')}}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('user.revistas_prestadas') }}">
-                            Mis revistas
+                       
+                            {{__('Mis revistas')}}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('user.ordenadores_prestados') }}">
-                            Mis ordenadores
+                          
+                            {{__('Mis ordenadores')}}
                         </a>
                     </li>
 
@@ -52,7 +58,7 @@
 <!-- Contenido principal -->
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 text-left">
     <div class="d-flex justify-content-left flex-wrap align-items-left pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Bienvenido/a, {{ Auth::user()->name }}</h1>
+        <h1 class="h2"> {{__('Bienvenido')}}, {{ Auth::user()->name }}</h1>
     </div>
 
     <img src="{{ asset('images/pantallaPrincipal.jpeg') }}" alt="Imagen Biblioteca Carrillo" class="img-fluid mb-3">

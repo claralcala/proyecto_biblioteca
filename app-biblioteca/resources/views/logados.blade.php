@@ -5,37 +5,43 @@
         <!-- Sidebar -->
         <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block custom-bg sidebar" style="height: 200vh;">
             <div class="sidebar-sticky">
-                <h2>Barra de Navegación</h2>
+                <h2>{{__('Barra de Navegación')}}</h2>
                 <ul class="nav flex-column">
                     <!-- Elementos del Sidebar -->
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('libros.create') }}">
-                            Registrar Libro
+                            
+                            {{__('Registrar libro')}}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('libros.listado') }}">
-                            Listado de Libros
+                        {{__('Listado de libros')}}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('revistas.create') }}">
-                            Registrar Revista
+                          
+                            {{__('Registrar Revista')}}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('revistas.store') }}">
-                            Listado Revista
+                           
+                            {{__('Listado Revista')}}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('ordenadores.create') }}">
-                            Registrar Ordenador
+                            
+                            {{__('Registrar Ordenador')}}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('ordenadores.store') }}">
-                            Listado Ordenadores
+                           
+
+                            {{__('Listado Ordenadores')}}
                         </a>
                     </li>
                     <li class="nav-item">
@@ -51,7 +57,7 @@
  <!-- Contenido principal -->
  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Bienvenido/a, {{ Auth::user()->name }}</h1>
+                <h1 class="h2">{{__('Bienvenido')}}, {{ Auth::user()->name }}</h1>
             </div>
 
             <img src="{{ asset('images/pantallaPrincipal.jpeg') }}" alt="Imagen Biblioteca Carrillo" class="img-fluid mb-3">

@@ -5,51 +5,58 @@
         <!-- Sidebar -->
         <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block custom-bg sidebar" style="height: 100vh;">
             <div class="sidebar-sticky">
-                <h2>Barra de Navegación</h2>
+                <h2>{{__('Barra de Navegacion')}}</h2>
                 <ul class="nav flex-column">
                     <!-- Elementos del Sidebar -->
                     @if(Auth::user()->role == 'admin') {{-- Solo visible para administradores --}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('libros.create') }}">
-                                Registrar Libro
+                              {{__('Registrar Libro')}}
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('revistas.create') }}">
-                                Registrar Revista
+                               
+                                {{__('Registrar Revista')}}
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('ordenadores.create') }}">
-                                Registrar Ordenador
+                               
+                                {{__('Registrar Ordenador')}}
                             </a>
                         </li>
                     @else {{-- Solo visible para usuarios normales --}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('user.libros_prestados') }}">
-                                Mis libros
+                               
+                                {{__('Mis libros')}}
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('user.revistas_prestadas') }}">
-                                Mis revistas
+                            
+                                {{__('Mis revistas')}}
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('user.ordenadores_prestados') }}">
-                                Mis ordenadores
+                               
+                                {{__('Mis ordenadores')}}
                             </a>
                         </li>
                     @endif
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('libros.listado') }}">
-                            Listado Libros
+                            
+                            {{__('Listado de Libros')}}
                         </a>
                     </li>
         
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('lista_ordenadores') }}">
-                            Listado Ordenadores
+                           
+                            {{__('Listado Ordenadores')}}
                         </a>
                     </li>
                     <li class="nav-item">
@@ -66,15 +73,15 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <div class="container">
-                <h2>Listado de Revistas</h2>
+                <h2>{{__('Listado de Revistas')}}</h2>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Título</th>
-                            <th>Numero</th>
+                            <th>{{__('Titulo')}}</th>
+                            <th>{{__('Numero')}}</th>
                         
-                            <th>Año de Publicación</th>
-                            <th>Portada</th>
+                            <th>{{__('Año Publicacion')}}</th>
+                            <th>{{__('Portada')}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -96,7 +103,7 @@
                                 @if($revista->portada)
                                     <img src="{{ asset('images/' . $revista->portada) }}" width="100" height="100">
                                 @else
-                                    Sin portada
+                                {{__('Sin portada')}}
                                 @endif
                             </td>
                         </tr>
