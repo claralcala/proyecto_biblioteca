@@ -95,3 +95,14 @@ a:hover {
     margin-right: 15px; /* Ajusta el valor según necesites */
 }
 
+
+.link-english {
+    color: #e5ff00; /* Azul */
+    text-decoration: none; 
+}
+
+.link-spanish {
+    color: #fefefe; /* Verde */
+    text-decoration: none;
+}
+

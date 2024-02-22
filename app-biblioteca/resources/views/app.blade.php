@@ -43,8 +43,8 @@
         <img src= "{{ asset('images/biblio.png') }}" alt = "Logo" class="img-fluid mb-3">
     @endif
 
-    <a href="{{ route('set_language', ['language' => 'en']) }}">English</a>
-    <a href="{{ route('set_language', ['language' => 'es']) }}">Español</a>
+    <a href="{{ route('set_language', ['language' => 'en']) }}" class="link-english">English</a>
+    <a href="{{ route('set_language', ['language' => 'es']) }}" class="link-spanish">Español</a>
 </header>
     @yield('content')
 
