@@ -34,7 +34,9 @@ Route::get('/logados', [AuthController::class, 'logados'])->middleware('auth')->
 // Ruta para la página principal a la que se redirige a los usuarios normales después del login
 Route::get('/principal', [AuthController::class, 'principal'])->middleware('auth')->name('principal');
 
+// Ruta para el cambio de idiomas
 Route::get('/set_language/{language}', LanguageController::class)->name( 'set_language');
+
 // Rutas accesibles para usuarios normales y administradores
 Route::middleware(['auth'])->group(function () {
     // Listado y detalles de libros
