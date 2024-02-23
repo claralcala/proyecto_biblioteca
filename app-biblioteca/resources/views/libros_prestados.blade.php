@@ -24,6 +24,26 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('user.ordenadores_prestados') }}"> {{__('Mis ordenadores')}}</a>
                     </li>
+                                @if(Auth::check()) {{-- Verifica si hay un usuario autenticado --}}
+                    @if(Auth::user()->role === 'admin') {{-- Si el usuario es un administrador --}}
+                    <li class="nav-item">
+                                    <form action="{{ route('logados') }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;">Inicio  </button>
+                                    </form>
+                                </li>
+                    
+                    @elseif(Auth::user()->role === 'user') {{-- Si el usuario es un usuario normal --}}
+                    <li class="nav-item">
+                                    <form action="{{ route('principal') }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;">Inicio  </button>
+                                    </form>
+                                </li>
+                    @endif
+                            @else {{-- Sin usuario autenticado dejamos el header sin enlace --}}
+                            <img src= "{{ asset('images/biblio.png') }}" alt = "Logo" class="img-fluid mb-3">
+                    @endif
                     <li class="nav-item">
                         <form action="{{ route('logout') }}" method="post">
                             @csrf

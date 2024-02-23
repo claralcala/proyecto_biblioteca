@@ -39,6 +39,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <form action="{{ route('logados') }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;">Inicio  </button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
                         <form action="{{ route('logout') }}" method="post">
                             @csrf
                             <button type="submit" class="btn btn-danger">Logout</button>

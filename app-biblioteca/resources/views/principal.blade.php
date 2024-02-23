@@ -45,7 +45,6 @@
                             {{__('Mis ordenadores')}}
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <form action="{{ route('logout') }}" method="post">
                             @csrf

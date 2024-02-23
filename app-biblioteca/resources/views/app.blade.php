@@ -30,8 +30,6 @@
         @if(Auth::user()->role === 'admin') {{-- Si el usuario es un administrador --}}
             <a href="{{ route('logados') }}" class="text-white">
                 <img src= "{{ asset('images/biblio.png') }}" alt = "Logo" class="img-fluid mb-3">
-                
-
             </a>
            
         @elseif(Auth::user()->role === 'user') {{-- Si el usuario es un usuario normal --}}
@@ -42,9 +40,17 @@
     @else {{-- Sin usuario autenticado dejamos el header sin enlace --}}
         <img src= "{{ asset('images/biblio.png') }}" alt = "Logo" class="img-fluid mb-3">
     @endif
+    
+    <div class="flag-container">
+    <a href="{{ route('set_language', ['language' => 'en']) }}" class="link-english">
+        <img src="{{ asset('images/eeuu.png') }}" alt="Bandera de Inglés">
+    </a>
 
-    <a href="{{ route('set_language', ['language' => 'en']) }}" class="link-english">English</a>
-    <a href="{{ route('set_language', ['language' => 'es']) }}" class="link-spanish">Español</a>
+    <a href="{{ route('set_language', ['language' => 'es']) }}" class="link-spanish">
+        <img src="{{ asset('images/espania.png') }}" alt="Bandera de Español">
+    </a>
+    </div>
+
 </header>
     @yield('content')
 
