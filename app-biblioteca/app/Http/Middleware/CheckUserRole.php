@@ -17,8 +17,7 @@ class CheckUserRole
     public function handle(Request $request, Closure $next): Response
     {
         if (!Auth::check() || Auth::user()->role !== 'user') {
-            // Si el usuario no está autenticado o no tiene el rol 'user', redirige a alguna ruta.
-            // Puedes cambiar 'home' a cualquier ruta a la que quieras redirigir.
+            // Si el usuario no está autenticado o no tiene el rol user, redirige al login
             return redirect('home')->with('error', 'No tienes permiso para acceder a esta sección.');
         }
 

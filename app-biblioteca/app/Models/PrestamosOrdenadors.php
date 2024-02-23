@@ -24,7 +24,7 @@ class PrestamosOrdenadors extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    // Relación con el modelo Revista
+    // Relación con el modelo Ordenador
     public function ordenador()
     {
         return $this->belongsTo(Ordenador::class, 'ordenador_id');

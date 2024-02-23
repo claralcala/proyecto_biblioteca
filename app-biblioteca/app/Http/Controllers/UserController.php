@@ -41,7 +41,7 @@ class UserController extends Controller
     public function librosPrestados()
 {
     $librosPrestados = PrestamosLibros::where('user_id', Auth::id())
-                        ->with('libro') // Asume que tienes una relación libro() en el modelo PrestamoLibro
+                        ->with('libro') 
                         ->get();
 
     return view('libros_prestados', compact('librosPrestados'));
