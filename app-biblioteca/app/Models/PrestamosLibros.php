@@ -15,7 +15,7 @@ class PrestamosLibros extends Model
         'user_id', // ID del usuario 
         'libro_id', // ID del libro prestado
         'fecha_prestamo', // Fecha en que se realiza el préstamo
-        'fecha_devolucion', // Fecha en que se devuelve el libro , de momento lo pongo opcional y ya lo modificaré
+        'fecha_devolucion', // Fecha en que se devuelve el libro
     ];
 
     // Relación con el modelo User

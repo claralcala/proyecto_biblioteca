@@ -30,7 +30,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('prestamos_revistas', function (Blueprint $table) {
-            //
+            
         });
     }
 };

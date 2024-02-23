@@ -19,7 +19,7 @@ class LibrosTableSeeder extends Seeder
                 'autor' => 'Antoine de Saint-Exupery',
                 'isbn' => '567567567567457',
                 'anio_publicacion' => '1943',
-                'portada' => 'el_principito.jpg', // Asume que tienes esta imagen en public/images
+                'portada' => 'el_principito.jpg', 
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
